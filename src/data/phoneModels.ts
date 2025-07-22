@@ -1,5 +1,9 @@
+import phonePic0 from '../assets/phone.png';
+import phonePic1 from '../assets/phone1.png';
+
 export type modelType = {
     id: number;
+    pic: string;
     name: string;
     brand: string;
     release_date: string;
@@ -16,10 +20,11 @@ export type modelType = {
 export const models: modelType[] = [
     {
         id: 1,
+        pic: phonePic0,
         name: 'iPhone 12',
         brand: 'Apple',
         release_date: '2020',
-        screen_size: '6.1',
+        screen_size: '6,1',
         production_contry: 'Китай',
         memory_capacity: '128',
         refresh_rate: '60',
@@ -30,10 +35,11 @@ export const models: modelType[] = [
     },
     {
         id: 2,
+        pic: phonePic1,
         name: 'Samsung Galaxy S21',
         brand: 'Samsung',
         release_date: '2021',
-        screen_size: '6.2',
+        screen_size: '6,2',
         production_contry: 'Республика Корея',
         memory_capacity: '128',
         refresh_rate: '60',
@@ -44,10 +50,11 @@ export const models: modelType[] = [
     },
     {
         id: 3,
+        pic: phonePic1,
         name: 'Realme 8',
         brand: 'Realme',
         release_date: '2021',
-        screen_size: '6.4',
+        screen_size: '6,4',
         production_contry: 'Китай',
         memory_capacity: '128',
         refresh_rate: '60',
@@ -58,10 +65,11 @@ export const models: modelType[] = [
     },
     {
         id: 4,
+        pic: phonePic0,
         name: 'iPhone 12',
         brand: 'Apple',
         release_date: '2020',
-        screen_size: '6.1',
+        screen_size: '6,1',
         production_contry: 'Китай',
         memory_capacity: '128',
         refresh_rate: '60',
@@ -72,8 +80,7 @@ export const models: modelType[] = [
     },
 ];
 
-export const keyLabels: Record<keyof Omit<modelType, 'id'>, string> = {
-    name: 'Название',
+export const keyLabels: Record<keyof Omit<Omit<Omit<modelType, 'name'>, 'id'>, 'pic'>, string> = {
     brand: 'Производитель',
     release_date: 'Год релиза',
     screen_size: 'Диагональ экрана (дюйм)',
