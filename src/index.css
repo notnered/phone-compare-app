@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@plugin "tailwind-scrollbar" {
+    nocompatible: true;
+}
+
 @theme {
     --color-primary: rgba(13, 90, 220, 1);
     --color-secondary: rgba(59, 65, 87, 1);
