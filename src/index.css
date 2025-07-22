@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../src/fonts/Roboto-VariableFont_wdth\,wght.ttf');
+}
+
 @import "tailwindcss";
 
 @plugin "tailwind-scrollbar" {
@@ -5,6 +10,7 @@
 }
 
 @theme {
+    --font-roboto: Roboto, sans-serif;
     --color-primary: rgba(13, 90, 220, 1);
     --color-secondary: rgba(59, 65, 87, 1);
     --color-secondary-light: rgba(130, 130, 134, 1);
