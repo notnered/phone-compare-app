@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: rgba(13, 90, 220, 1);
+    --color-secondary: rgba(59, 65, 87, 1);
+    --color-secondary-light: rgba(130, 130, 134, 1);
+    --color-bg: rgba(244, 249, 252, 1);
+}
+
+@layer components {
+    .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        width: 100%;
+    }
+}
