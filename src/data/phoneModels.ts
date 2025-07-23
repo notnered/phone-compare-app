@@ -1,5 +1,10 @@
-import phonePic0 from '../assets/phone.png';
 import phonePic1 from '../assets/phone1.png';
+import samsungPic from '../assets/phone2.png';
+import xiaomiPic from '../assets/phone3.png';
+import iphonePic from '../assets/phonedd.png';
+import realmePic from '../assets/realme8.png';
+import pixelPic from '../assets/pixel.png';
+import nothingPic from '../assets/nothing.png';
 
 export type modelType = {
     id: number;
@@ -20,8 +25,8 @@ export type modelType = {
 export const models: modelType[] = [
     {
         id: 1,
-        pic: phonePic0,
-        name: 'iPhone 12',
+        pic: iphonePic,
+        name: 'Apple iPhone 12',
         brand: 'Apple',
         release_date: '2020',
         screen_size: '6,1',
@@ -31,26 +36,26 @@ export const models: modelType[] = [
         nfc: false,
         esim_support: true,
         wireless_charge_support: true,
-        price: 81990,
+        price: 55990,
     },
     {
         id: 2,
-        pic: phonePic1,
-        name: 'Samsung Galaxy S21',
-        brand: 'Samsung',
+        pic: xiaomiPic,
+        name: 'Xiaomi Mi 11 Lite ',
+        brand: 'Xiaomi',
         release_date: '2021',
-        screen_size: '6,2',
-        production_contry: 'Республика Корея',
+        screen_size: '6,55',
+        production_contry: 'Китай',
         memory_capacity: '128',
-        refresh_rate: '60',
+        refresh_rate: '90',
         nfc: true,
         esim_support: true,
-        wireless_charge_support: true,
-        price: 79990,
+        wireless_charge_support: false,
+        price: 27490,
     },
     {
         id: 3,
-        pic: phonePic1,
+        pic: realmePic,
         name: 'Realme 8',
         brand: 'Realme',
         release_date: '2021',
@@ -58,29 +63,77 @@ export const models: modelType[] = [
         production_contry: 'Китай',
         memory_capacity: '128',
         refresh_rate: '60',
-        nfc: false,
+        nfc: true,
+        esim_support: false,
+        wireless_charge_support: false,
+        price: 18990,
+    },
+    {
+        id: 4,
+        pic: samsungPic,
+        name: 'Samsung Galaxy A72',
+        brand: 'Samsung',
+        release_date: '2021',
+        screen_size: '6,7',
+        production_contry: 'Вьетнам',
+        memory_capacity: '128',
+        refresh_rate: '90',
+        nfc: true,
+        esim_support: false,
+        wireless_charge_support: true,
+        price: 32890,
+    },
+    {
+        id: 5,
+        pic: phonePic1,
+        name: 'Apple iPhone 13',
+        brand: 'Apple',
+        release_date: '2021',
+        screen_size: '6,1',
+        production_contry: 'Китай',
+        memory_capacity: '256',
+        refresh_rate: '60',
+        nfc: true,
         esim_support: true,
         wireless_charge_support: true,
         price: 69990,
     },
     {
-        id: 4,
-        pic: phonePic0,
-        name: 'iPhone 12',
-        brand: 'Apple',
-        release_date: '2020',
+        id: 6,
+        pic: pixelPic,
+        name: 'Google Pixel 7 Pro',
+        brand: 'Google',
+        release_date: '2022',
         screen_size: '6,1',
         production_contry: 'Китай',
         memory_capacity: '128',
-        refresh_rate: '60',
+        refresh_rate: '120',
+        nfc: true,
+        esim_support: true,
+        wireless_charge_support: true,
+        price: 54490,
+    },
+    {
+        id: 7,
+        pic: nothingPic,
+        name: 'Nothing Phone 1',
+        brand: 'Nothing',
+        release_date: '2022',
+        screen_size: '6,55',
+        production_contry: 'Китай',
+        memory_capacity: '256',
+        refresh_rate: '120',
         nfc: false,
         esim_support: true,
         wireless_charge_support: true,
-        price: 81990,
-    },
+        price: 39890,
+    }
 ];
 
-export const keyLabels: Record<keyof Omit<Omit<Omit<modelType, 'name'>, 'id'>, 'pic'>, string> = {
+export const keyLabels: Record<
+    keyof Omit<Omit<Omit<modelType, 'name'>, 'id'>, 'pic'>,
+    string
+> = {
     brand: 'Производитель',
     release_date: 'Год релиза',
     screen_size: 'Диагональ экрана (дюйм)',
