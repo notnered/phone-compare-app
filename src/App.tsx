@@ -3,7 +3,7 @@ import CompareBlock from './Components/CompareBlock';
 
 export default function App(){
     return (
-        <div className='container max-w-[1440px] mx-auto font-roboto'>
+        <div className='mx-auto font-roboto'>
             <NavBar />
             <CompareBlock />
         </div>
