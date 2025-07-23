@@ -1,14 +1,16 @@
 import type { modelType } from '../data/phoneModels';
 import { models, keyLabels } from '../data/phoneModels';
 import { IoIosCheckmarkCircle, IoIosCloseCircle } from 'react-icons/io';
-import CompareHeader from './CompareHeader';
+import CompareModels from './CompareModels';
 
-export default function CompareMain() {
+export default function CompareMain({ limit }: { limit: number }) {
     const modelKeys = Object.keys(keyLabels) as (keyof typeof keyLabels)[];
 
-    const modelsVisual = models.map(({ id, name, pic }) => ({ id, name, pic }));
+    const limitedModels = models.slice(0, limit);
 
-    const modelsSpecs = models.map(({ id, ...rest }) => ({ id, ...rest }));
+    const modelsVisual = limitedModels.map(({ id, name, pic }) => ({ id, name, pic }));
+
+    const modelsSpecs = limitedModels.map(({ id, ...rest }) => ({ id, ...rest }));
 
     const renderValue = (
         key: keyof Omit<modelType, 'id'>,
@@ -32,34 +34,43 @@ export default function CompareMain() {
     };
 
     return (
-        <main className='bg-bg pb-12 px-2'>
-            <div className='wrapper flex flex-col overflow-x-auto pb-1.5 scrollbar scrollbar-h-2.5 scrollbar-thumb-secondary-light/50 scrollbar-thumb-rounded-xl scrollbar-hover:scrollbar-thumb-secondary-light/75'>
-                <div className='w-full flex flex-col'>
-                    {modelKeys.map((key, index) => (
-                        <div key={key} className='w-full flex'>
-                            <div
-                                className={`w-full min-w-[calc(25%+1rem)] flex pr-4 py-6 ${
-                                    index === 0 ? 'border-t-[1px]' : ''
-                                } border-b-[1px] border-secondary/35`}
-                            >
-                                <div className='text-secondary-light uppercase font-medium'>
-                                    {keyLabels[key]}
-                                </div>
-                            </div>
-                            {modelsSpecs.map((model) => (
+        <main className='pb-12'>
+            <div
+                className={`flex flex-col ${modelsSpecs.length > 3 ? 'overflow-x-auto' : 'overflow-x-hidden'} wrapper px-2 pb-2.5 scrollbar scrollbar-h-2.5 scrollbar-thumb-secondary-light/50 scrollbar-thumb-rounded-xl scrollbar-hover:scrollbar-thumb-secondary-light/75`}
+                style={{
+                    background:
+                        'linear-gradient(to bottom, #ffffff 0%, #ffffff 18rem, rgba(244, 249, 252, 1) 18rem, rgba(244, 249, 252, 1) 100%)',
+                }}
+            >
+                <div className=''>
+                    <div className='flex flex-col w-full'>
+                        <CompareModels models={modelsVisual} />
+                        {modelKeys.map((key, index) => (
+                            <div key={key} className='flex'>
                                 <div
-                                    key={model.id + key}
-                                    className={`w-full min-w-[calc(25%+1rem)] flex pr-4 py-6 ${
+                                    className={`min-w-[calc(25%+0.5rem)] w-full flex pr-4 py-6 ${
                                         index === 0 ? 'border-t-[1px]' : ''
                                     } border-b-[1px] border-secondary/35`}
                                 >
-                                    <div className='text-secondary capitalize font-medium'>
-                                        {renderValue(key, model[key])}
+                                    <div className='text-secondary-light uppercase font-medium'>
+                                        {keyLabels[key]}
                                     </div>
                                 </div>
-                            ))}
-                        </div>
-                    ))}
+                                {modelsSpecs.map((model) => (
+                                    <div
+                                        key={model.id + key}
+                                        className={`min-w-[calc(25%+0.5rem)] w-full flex pr-4 py-6 ${
+                                            index === 0 ? 'border-t-[1px]' : ''
+                                        } border-b-[1px] border-secondary/35`}
+                                    >
+                                        <div className='text-secondary capitalize font-medium'>
+                                            {renderValue(key, model[key])}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </main>

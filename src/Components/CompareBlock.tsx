@@ -1,11 +1,16 @@
-import CompareHeader from "./CompareHeader";
+import { useState } from "react";
+import CompareFilters from "./CompareFilters";
 import CompareMain from "./CompareMain";
+import { models } from '../data/phoneModels';
 
 export default function CompareBlock(){
+    const [compareLimit, setCompareLimit] = useState(3);
+    const allModelsLength = models.length;
+
     return (
         <>
-            <CompareHeader />
-            <CompareMain />
+            <CompareFilters limit={compareLimit} limitFunc={setCompareLimit} len={allModelsLength} />
+            <CompareMain limit={compareLimit} />
         </>
     )
 }
