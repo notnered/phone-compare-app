@@ -23,7 +23,7 @@
 ## 🚀 Установка и запуск
 
 ```bash
-https://github.com/notnered/phone-compare-app.git
+git clone https://github.com/notnered/phone-compare-app.git
 cd phone-compare-app
 npm install
 npm run dev
